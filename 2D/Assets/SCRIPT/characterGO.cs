@@ -15,4 +15,5 @@ public class characterGO : MonoBehaviour
     {
         jump();
     }
+
 }
