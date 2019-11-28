@@ -10,6 +10,7 @@ public class LeadAPI : MonoBehaviour
     //地板
     public Transform GAY;
 
+    //圖片渲染器 SpriteRenderer
     public SpriteRenderer spriteA;
     private void Start()
     {

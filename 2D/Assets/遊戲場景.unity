@@ -411,6 +411,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   jump: 50
   dead: 0
+  sc: {fileID: 1718017626}
+  gm: {fileID: 394812602}
 --- !u!50 &249240685
 Rigidbody2D:
   serializedVersion: 4
@@ -464,7 +466,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &394812603
 Transform:
   m_ObjectHideFlags: 0
@@ -586,6 +588,7 @@ GameObject:
   - component: {fileID: 814385897}
   - component: {fileID: 814385899}
   - component: {fileID: 814385900}
+  - component: {fileID: 814385901}
   m_Layer: 0
   m_Name: "\u7DF4\u7FD22"
   m_TagString: Untagged
@@ -651,8 +654,20 @@ MonoBehaviour:
   b: 3
   c: 6
   d: 2
-  e: 1
-  f: 2
+--- !u!114 &814385901
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 814385896}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6fd5d125d0babb846864ffb77bc5404c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  open: 1
+  QQQ: 0
 --- !u!1 &951212433
 GameObject:
   m_ObjectHideFlags: 0
@@ -1397,7 +1412,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 9999
+  m_Text: 0
 --- !u!222 &1718017630
 CanvasRenderer:
   m_ObjectHideFlags: 0
