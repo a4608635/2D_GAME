@@ -409,10 +409,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2259c0d8f96b6948aca3cf427b4380d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jump: 50
+  jump: 280
   dead: 0
   sc: {fileID: 1718017626}
   gm: {fileID: 394812602}
+  r2d: {fileID: 249240685}
+  gmm: {fileID: 394812604}
 --- !u!50 &249240685
 Rigidbody2D:
   serializedVersion: 4
@@ -447,9 +449,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.0077506294, y: -0.018945988}
+  m_Offset: {x: -0.009699021, y: -0.018946007}
   serializedVersion: 2
-  m_Radius: 0.11952459
+  m_Radius: 0.11757619
 --- !u!1 &394812602
 GameObject:
   m_ObjectHideFlags: 0
@@ -496,6 +498,7 @@ MonoBehaviour:
   fraction1: 0
   fraction2: 0
   pipe: {fileID: 771363911231959603, guid: 823312c8994d7c4498541589b9c98353, type: 3}
+  Ui: {fileID: 233845012}
 --- !u!1 &733217779
 GameObject:
   m_ObjectHideFlags: 0

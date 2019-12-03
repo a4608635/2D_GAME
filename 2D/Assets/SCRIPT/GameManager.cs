@@ -11,6 +11,8 @@ public class GameManager : MonoBehaviour
     // GameObject 可以存放預置物以及廠景上的物件
     [Header("水管")]
     public GameObject pipe;
+    [Header("介面")]
+    public GameObject Ui;
 
     /// <summary>
     /// 生成水管
@@ -51,14 +53,14 @@ public class GameManager : MonoBehaviour
     /// </summary>
     public void GameOven()
     {
-
+        Ui.SetActive(true);
     }
 
     private void Start()
     {
         //延遲重複調用 
         //語法: 延遲重複調用=名稱,時間,延遲時間
-        InvokeRepeating("SpawnPipe", 0 , 1);
+        InvokeRepeating("SpawnPipe", 0 , 3);
     }
 
 }
