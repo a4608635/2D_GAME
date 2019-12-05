@@ -1,5 +1,6 @@
 ﻿
 using UnityEngine;
+using UnityEngine.UI; // 匯入API
 
 public class GameManager : MonoBehaviour
 {
@@ -13,6 +14,9 @@ public class GameManager : MonoBehaviour
     public GameObject pipe;
     [Header("介面")]
     public GameObject Ui;
+    [Header("分數介面")]
+    public Text text;
+    public Text text2;
 
     /// <summary>
     /// 生成水管
@@ -40,12 +44,24 @@ public class GameManager : MonoBehaviour
     /// <param name="app">加分的數字</param>
     public void  App(int app)
     {
+        fraction1 += app;
+        //text.text = fraction1 + "";
+        text.text = fraction1.ToString(); //整數.轉文字()
 
+        Fraction2();
     }
 
     private void Fraction2()
     {
 
+        // 如果目前分數>最高分數
+        if (fraction1>fraction2)
+        {
+            // 最高分數=目前分數
+            fraction2 = fraction1;
+            text2.text = fraction2.ToString();
+            PlayerPrefs.SetInt("最高分數", fraction2);
+        }
     }
 
     /// <summary>
@@ -54,13 +70,17 @@ public class GameManager : MonoBehaviour
     public void GameOven()
     {
         Ui.SetActive(true);
+        floor.fspeed = 0;
     }
 
     private void Start()
     {
         //延遲重複調用 
         //語法: 延遲重複調用=名稱,時間,延遲時間
-        InvokeRepeating("SpawnPipe", 0 , 3);
+        InvokeRepeating("SpawnPipe", 0 , 3);        
+        // 取得資料
+        fraction2 = PlayerPrefs.GetInt("最高分數");
+        text2.text = fraction2.ToString();
     }
 
 }

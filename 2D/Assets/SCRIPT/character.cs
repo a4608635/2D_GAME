@@ -14,6 +14,10 @@ public class character : MonoBehaviour
     public Rigidbody2D  r2d;
     public GameManager gmm;
 
+    [Header("音效")]
+    public AudioSource aud;
+    public AudioClip soundjump, soundhit, soundadd;
+
     /// <summary>
     /// 神父跳起來
     /// </summary>
@@ -46,10 +50,15 @@ public class character : MonoBehaviour
             // Y=跳越高度
             // 剛體,推力(X,Y)
             r2d.AddForce(new Vector2(0,jump));
-            
-            
+
+            // 音源.方法(音效,音量);
+            aud.PlayOneShot(soundjump,5);
+
+
+
         }
-        print(r2d.velocity);
+        //可消除
+        // print(r2d.velocity);
         // velocity 剛體加速度(x,y)左右x,上下y
         r2d.SetRotation(5 * r2d.velocity.y);
     }
@@ -59,8 +68,13 @@ public class character : MonoBehaviour
     /// </summary>
     private void Dead()
     {
+        if (dead)
+        {
+            return;
+        }
         dead = true;
         gmm.GameOven();
+        aud.PlayOneShot(soundadd);
     }
 
     /// <summary>
@@ -68,6 +82,14 @@ public class character : MonoBehaviour
     /// </summary>
     public void Pass()
     {
+        if (dead)
+        {
+            return;
+        }
+        gmm.App(1);
+        print("加分");
+        aud.PlayOneShot(soundhit);
+        
 
     }
 
@@ -88,6 +110,17 @@ public class character : MonoBehaviour
     // 觸發事件:處發其他碰撞器開始時執行一次(針對勾選 IsTrigger的物件)
    public void OnTriggerEnter2D(Collider2D collision)
     {
-        Dead();
+        if (collision.gameObject.name == "04_水管"|| collision.gameObject.name == "04_水管 (1)")
+        {
+            Dead();
+        }
+        
+    }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.name == "加分")
+        {
+            Pass();
+        }
     }
 }
