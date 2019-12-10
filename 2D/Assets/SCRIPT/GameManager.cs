@@ -1,6 +1,7 @@
 ﻿
 using UnityEngine;
 using UnityEngine.UI; // 匯入API
+using UnityEngine.SceneManagement; //場景管理 API
 
 public class GameManager : MonoBehaviour
 {
@@ -73,8 +74,28 @@ public class GameManager : MonoBehaviour
         floor.fspeed = 0;
     }
 
+    /// <summary>
+    /// 重新遊戲
+    /// </summary>
+    public void Re()
+    {
+        //Application.LoadLevel("遊戲場景"); //應用程式.載入關卡(關卡名稱) 舊版API
+        SceneManager.LoadScene(0);           //場景管理.載入場景(場景名稱) 新版API
+    }
+
+    /// <summary>
+    /// 離開遊戲
+    /// </summary>
+    public void Ex()
+    {
+        Application.Quit();                 //應用程式.離開遊戲
+    }
+
+
     private void Start()
     {
+        //靜態欄位會保留上次的值，必須要重新設定
+        floor.fspeed = 2.5F;
         //延遲重複調用 
         //語法: 延遲重複調用=名稱,時間,延遲時間
         InvokeRepeating("SpawnPipe", 0 , 3);        

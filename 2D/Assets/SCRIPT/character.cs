@@ -57,6 +57,12 @@ public class character : MonoBehaviour
 
 
         }
+        if (Input.GetKeyDown(KeyCode.Mouse1))
+        {
+            print("按下右鍵");
+
+            r2d.gravityScale = 3;
+        }
         //可消除
         // print(r2d.velocity);
         // velocity 剛體加速度(x,y)左右x,上下y
@@ -91,6 +97,12 @@ public class character : MonoBehaviour
         aud.PlayOneShot(soundhit);
         
 
+    }
+
+    private void Start()
+    {
+        // 螢幕.設定解析度(寬,高,是否全螢幕)
+        Screen.SetResolution(720, 1280, false);
     }
 
     //監聽完家輸入:滑鼠、鍵盤、搖桿

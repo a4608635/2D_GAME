@@ -6,7 +6,7 @@ public class floor : MonoBehaviour
     // static 靜態 隱藏
     // 此類別共用 包含子類別
     //[Header("速度"),Range(1F,100F)]
-    public static float fspeed = 10;
+    public static float fspeed = 2.5F;
     [Header("變形")]
     public Transform GAY;
 
@@ -18,6 +18,7 @@ public class floor : MonoBehaviour
         GAY.Translate(-fspeed * Time.deltaTime, 0, 0);
     }
 
+    
     private void Update()
     {
         Fspeed();        
